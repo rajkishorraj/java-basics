@@ -1,15 +1,27 @@
 package com.myjavacode.coll;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.regex.Pattern;
 
 public class ListColl {
 
-    public static void main(String [] args) {
+    public static boolean extractQueueIdFromQueueUrl(URI queueUrl) {
 
-        List<String> arraylist = new ArrayList<>();
-        Integer i1 = 100;
-        Integer i2 = 100;
-        System.out.println(i1 != i2);
+        return Optional.of(Pattern
+                .compile("(.*)(/queue/item/)(\\d+)$")
+                .matcher(queueUrl.toString())
+                .find())
+                .get();
+
+    }
+
+    public static void main(String [] args) throws URISyntaxException {
+
+        System.out.println(ListColl.extractQueueIdFromQueueUrl((URI)null));
+
     }
 }
