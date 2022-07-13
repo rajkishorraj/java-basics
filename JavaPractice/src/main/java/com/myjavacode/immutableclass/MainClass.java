@@ -11,7 +11,10 @@ public class MainClass {
         Student student = new Student("raj", 23, tempMap);
         tempMap.put("abc", "abcd");
         student.getMetadata().put("abc", "abcd");
+
+
         System.out.println(student.getMetadata());
 
     }
 }
+

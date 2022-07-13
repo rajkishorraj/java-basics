@@ -17,6 +17,7 @@ public class CustomGeneric<T, U> {
         System.out.println(x);
     }
 
+
     public static void main(String [] args) {
         CustomGeneric<String, Integer> customGeneric = new CustomGeneric<>("raj", 23);
         customGeneric.detail();

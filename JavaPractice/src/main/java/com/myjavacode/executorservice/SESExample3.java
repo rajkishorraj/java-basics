@@ -34,7 +34,10 @@ public class SESExample3 {
         scheduledFuture = scheduledExecutorService.scheduleAtFixedRate(task1, 0, 2, TimeUnit.SECONDS);
         System.out.println("Scheduling task to run after 5 seconds started... " + LocalDateTime.now());
 
-        countDownLatch.await(10, TimeUnit.SECONDS);
+//        scheduledExecutorService.shutdown();
+
+
+//        countDownLatch.await(10, TimeUnit.SECONDS);
 
 //        scheduledExecutorService.awaitTermination(2, TimeUnit.SECONDS);
 

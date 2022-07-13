@@ -1,6 +1,7 @@
 package com.myjavacode.coll;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class ListColl2 {
@@ -11,5 +12,7 @@ public class ListColl2 {
         Integer i1 = 100;
         Integer i2 = 100;
         System.out.println(i1 != i2);
+
+        arraylist.sort(Comparator.comparingInt(String::length));
     }
 }

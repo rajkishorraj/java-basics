@@ -1,5 +1,6 @@
 package com.myjavacode.generics;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestPolymorphismWithTypedArray {
@@ -11,7 +12,12 @@ public class TestPolymorphismWithTypedArray {
         new AnimalDoctor().checkAnimals(birds);
         new AnimalDoctor().checkAnimals(dogs);
 
-        addAnimals(birds); //will throw array store exception at runtime
+//        addAnimals(birds); //will throw array store exception at runtime
+
+        //for list operation
+        List<? super Dog> animalList = new ArrayList<Dog>();
+        AnimalDoctor.addAnimalsWithSuper(animalList);
+        System.out.println(animalList);
 
     }
 
@@ -21,8 +27,8 @@ public class TestPolymorphismWithTypedArray {
 
 }
 
-abstract class Animal {
-    abstract void checkUp();
+ class Animal {
+    void checkUp() {};
 }
 
 class AnimalDoctor {
@@ -34,12 +40,12 @@ class AnimalDoctor {
     }
 
     //will only allow Animal generic type
-    void addAnimals(List<Animal> animals) {
+    static void addAnimals(List<Animal> animals) {
         animals.add(new Dog());
     }
 
     //super allow any generic type of Animal or its super type
-    void addAnimalsWithSuper(List<? super Animal> animals) {
+    static void addAnimalsWithSuper(List<? super Dog> animals) {
         animals.add(new Dog());
     }
 
