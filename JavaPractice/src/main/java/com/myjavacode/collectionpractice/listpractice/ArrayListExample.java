@@ -1,7 +1,5 @@
 package com.myjavacode.collectionpractice.listpractice;
 
-import com.myjavacode.oobasic.Animal;
-import com.sun.tools.corba.se.idl.StringGen;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,10 +23,18 @@ public class ArrayListExample {
             if (iterator.next().equals("raj")) {
                 list.remove("str");
             }
-            //will throw exception while it will not throw exception for concurrenthasMap or copyOnArrayList
-            //becasue iterator is created out of copied list not in the original lsit
+
+            //will throw exception because iterator is created out of original collection
+            // while it will not throw exception for concurrenthasMap or copyOnArrayList because
+            //in copyOnArrayList iterator is created out of copied collection and in
+            //concurrentHashMap although iterator is created out of original map but it the
+            //iterator will be fail-safe which may or may not return updated data
+            if (iterator.next().equals("raj")) {
+                iterator.remove(); //it is fine
+            }
 
         }
+
     }
     //listiterator is only for list and it traverses forward and backward unlike iterator which moves forward only
 
@@ -39,10 +45,8 @@ public class ArrayListExample {
         System.out.println("traversing forward");
         while(iterator.hasNext()) {
             System.out.println(iterator.next());
-            //will throw exception while it will not throw exception for concurrenthasMap or copyOnArrayList
-            //becasue iterator is created out of copied list not in the original lsit
-
         }
+
         System.out.println("TRAVERING BACKWARD \n");
         while(iterator.hasPrevious()) {
             System.out.println(iterator.previous());
@@ -61,6 +65,18 @@ public class ArrayListExample {
 
     }
 
+    public static void forEachVsIterator(List<String> list) {
+        for (String i : list) {
+            System.out.println(i);
+            list.remove(i); // throws exception
+        }
+
+        Iterator<String> it=list.iterator();
+        while (it.hasNext()){
+            System.out.println(it.next());
+            it.remove(); // valid here
+        }
+    }
     public static void methodsOfCollection(List<String> str) {
         List<String> str2 = new ArrayList<>();
 
@@ -68,12 +84,13 @@ public class ArrayListExample {
         List<Integer> list = Collections.emptyList(); //returns emptyList immutable
         Collections.fill(str, "mannat"); //replace all of the elements in the specified list with given obj
         Collections.copy(str2, str); //str2 - dest, str - src -- copies element from src to dest
-        Collections.reverse(str2); //reverses string
+        Collections.reverse(str2); //reverses list of string
         Collections.synchronizedCollection(str2); // returns synchronizedCollection backed by origincal collection
         //while traversing sync using iterator you must synchorined on the list object.
         Collections.unmodifiableList(str2); //returns unmodifiable view of the specified list . its just a wrapper around
         // specified collection if we modify specifed coll ,, this coll will change too
         Collections.checkedList(str2, String.class); //dynamically typesafe view of the colleciton ..passing list and type of list object
+        //Any attempt to insert an element of the wrong type will result in an immediate ClassCastException
         Collections.singletonList("raj"); // returns immutable list containing that object only
         Collections.singleton("kr"); //Returns an immutable set containing only the specified object.
         Collections.sort(str2, String::compareTo);

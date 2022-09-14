@@ -17,36 +17,21 @@ public class ExecutorExample2 {
 
         List<Callable<String>> callables = new ArrayList<>();
 
-        callables.add(() -> {
-            Thread.sleep(3000);
-            System.out.println("task printing1" + Math.random() * 10);
-            return "Task 1";
-        });
-        callables.add(() -> {
-            Thread.sleep(3000);
-            System.out.println("task printing2" + Math.random() * 10);
-            return "Task 2";
-        });
-        callables.add(() -> {
-            Thread.sleep(3000);
-            System.out.println("task printing3" + Math.random() * 10);
-            return "Task 3";
-        });
-
+        callables.add(() -> ExecutorExample.task("task 1"));
+        callables.add(() -> ExecutorExample.task("task 2"));
+        callables.add(() -> ExecutorExample.task("task 3"));
 
         List<Future<String>> resultList = new ArrayList<>();
 
         Instant start = Instant.now();
-
-       for (Callable<String> callable : callables) {
+        for (Callable<String> callable : callables) {
            Future<String> future = executor.submit(callable);
            resultList.add(future);
-       }
-
+        }
         Instant end = Instant.now();
 
         Duration timeElapsed = Duration.between(start, end);
-        System.out.println("Time taken: "+ timeElapsed.toMillis() +" milliseconds");
+        System.out.println("Time taken: " + timeElapsed.toMillis() + " milliseconds " + Thread.currentThread().getName());
         executor.shutdown();
 
         System.out.println("\n========Printing the results======");

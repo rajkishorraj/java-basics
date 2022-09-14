@@ -16,22 +16,9 @@ public class ExecutorExample {
 
         List<Callable<String>> callables = new ArrayList<>();
 
-        callables.add(() -> {
-            System.out.println("task printing" + Math.random() * 10);
-            Thread.sleep(3000);
-            return "Task 1";
-        });
-        callables.add(() -> {
-            System.out.println("task printing" + Math.random() * 10);
-            Thread.sleep(3000);
-            return "Task 2";
-        });
-        callables.add(() -> {
-            System.out.println("task printing" + Math.random() * 10);
-            Thread.sleep(3000);
-            return "Task 3";
-        });
-
+        callables.add(() -> task("task 1"));
+        callables.add(() -> task("task 2"));
+        callables.add(() -> task("task 3"));
 
         List<Future<String>> resultList = null;
 
@@ -44,7 +31,9 @@ public class ExecutorExample {
         Instant end = Instant.now();
 
         Duration timeElapsed = Duration.between(start, end);
-        System.out.println("Time taken: "+ timeElapsed.toMillis() +" milliseconds");
+        System.out.println("Time taken in starting all tasks execution: "+ timeElapsed.toMillis() +" milliseconds "
+        + Thread.currentThread().getName());
+
         executor.shutdown();
 
         System.out.println("\n========Printing the results======");
@@ -53,10 +42,17 @@ public class ExecutorExample {
             Future<String> future = resultList.get(i);
             try {
                 String result = future.get();
-                System.out.println("result " + result);
+                System.out.println("result of task " + i + " " + result);
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static String task(String taskName) throws InterruptedException {
+        Thread.sleep(1000);
+        System.out.println("printing task " + taskName + " " + Thread.currentThread().getName());
+        Thread.sleep(2000);
+        return "taskName";
     }
 }

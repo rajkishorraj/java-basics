@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 public class MapExample {
     public static void main(String[] args) {
@@ -92,5 +94,9 @@ public class MapExample {
 
         Collections.binarySearch(new ArrayList<>(), 10); //if not found it returns
         //-(index  - 1) i.e., index is the supposed index of elements
+    }
+
+    public static void concurrentHashMapOperation() {
+        Map<String, String> mp = new ConcurrentHashMap<>();
     }
 }

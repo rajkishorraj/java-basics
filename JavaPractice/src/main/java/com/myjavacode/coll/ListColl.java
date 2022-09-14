@@ -27,6 +27,35 @@ public class ListColl {
 
     }
 
+    public boolean checkValidString(String s) {
+
+        int minOpenParanthesis = 0;
+        int maxOpenParanthesis = 0; //both can be treated as same except when it comes to *
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+
+            if (ch == '(') {
+                minOpenParanthesis++;
+                maxOpenParanthesis++;
+            } else if (ch == ')') {
+                minOpenParanthesis--;
+                maxOpenParanthesis--;
+            } else {
+                minOpenParanthesis = Integer.max(0, minOpenParanthesis - 1);
+                maxOpenParanthesis++;
+            }
+
+            if (maxOpenParanthesis < 0) {
+                return false;
+            }
+        }
+
+        return minOpenParanthesis == 0;
+
+
+    }
+
     public static void main(String [] args) throws URISyntaxException {
 
 //        System.out.println(ListColl.extractQueueIdFromQueueUrl((URI)null));
@@ -36,6 +65,8 @@ public class ListColl {
         st.stream().map(String::toLowerCase);
 
         System.out.println(st);
+
+
 
 
 //
