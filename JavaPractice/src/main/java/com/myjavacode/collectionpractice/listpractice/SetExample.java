@@ -34,7 +34,5 @@ public class SetExample {
         Set<String> set2 = new TreeSet<>(String::compareTo);
 
 
-
-
     }
 }

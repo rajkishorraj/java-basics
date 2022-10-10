@@ -11,5 +11,8 @@ public class ListColl1 {
         Integer i1 = 100;
         Integer i2 = 100;
         System.out.println(i1 != i2);
+        arraylist.add("sf");
+        arraylist.add("sf");
+        arraylist.remove(arraylist.size() - 1);
     }
 }

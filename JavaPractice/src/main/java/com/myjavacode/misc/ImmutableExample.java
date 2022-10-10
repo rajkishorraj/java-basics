@@ -1,10 +1,6 @@
 package com.myjavacode.misc;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ImmutableExample {
-
 
     public static void main(String[] args) throws ClassNotFoundException {
         String ss = "dssf";
@@ -14,11 +10,6 @@ public class ImmutableExample {
         //if you do try to modify the object a new object will be created but that object will not get moidifed
 
         System.out.println(ss + " ");
-
-        final Map<String, String> mp =  new HashMap<>();
-
-
-
 
         new ChildClassA();
         new ChildClassB();

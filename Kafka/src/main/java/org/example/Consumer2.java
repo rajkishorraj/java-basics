@@ -37,14 +37,7 @@ public class Consumer2 {
     public static void init(Properties props) {
         props.put("bootstrap.servers", "127.0.0.1:9092");
         props.put("group.id", "myGroup");
-        props.put("enable.auto.commit", false);
-//        props.put("auto.commit.interval.ms",  "");
-//        props.put("request.timeout.ms", "");
-//        props.put("session.timeout.ms", "");
-//        props.put("heartbeat.interval.ms", "");
-//        props.put("fetch.max.message.bytes", "" + (50*1024*1024));
-//        props.put("max.partition.fetch.bytes", "" + (50*1024*1024));
-//        props.put("max.poll.records", "");
+        props.put("enable.auto.commit", true);
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
     }

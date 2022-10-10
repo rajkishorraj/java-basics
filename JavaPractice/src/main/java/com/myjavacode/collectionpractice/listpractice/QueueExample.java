@@ -18,7 +18,10 @@ public class QueueExample {
 
 
         Deque<Integer> deque  = new ArrayDeque<>();
-
+        System.out.println(deque.isEmpty());
+        System.out.println(deque.size());
+        deque.push(5); //will pushed in the stack represented by deque
+        deque.pop(); //will remove the top element from stack
         //add first will add element at front of the queue.. i.e., at zeroth index
 
         deque.addFirst(7);

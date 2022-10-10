@@ -1,4 +1,4 @@
-package com.myjavacode.collectionpractice.listpractice;
+package com.myjavacode.stringexample;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,6 +7,8 @@ public class CharacterClassExample {
 
     public static void main(String[] args) {
         Character ch = new Character('6');
+        Character ch2 = 't';
+
         System.out.println(ch.charValue() + " " + Character.isDigit('6'));
         System.out.println(ch.charValue() + " " + Character.getNumericValue('a'));
 
