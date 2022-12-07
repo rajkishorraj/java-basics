@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.ToString;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 public class RefectionExample {
     private String abc;
@@ -23,7 +24,6 @@ public class RefectionExample {
 //        new RefectionExample();
         int reflectionClass = ReflectAbc.class.getModifiers();
         System.out.println(reflectionClass);
-        System.out.println('d' - 'a');
 
     }
 

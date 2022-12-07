@@ -4,21 +4,33 @@ package com.myjavacode.collectionpractice.listpractice;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class MapExample {
     public static void main(String[] args) {
+
+
+        Collections.binarySearch(new ArrayList<>(), 10); //if not found it returns
+        //-(index  - 1) i.e., index is the supposed index of elements
+    }
+
+    public static void simpleMapOperations() {
         Map<String, String> map = new HashMap<>();
         map.getOrDefault("raj", "not found"); //Returns the value to which the specified key is mapped, or
-     // if this map contains no mapping for the key.
+        // if this map contains no mapping for the key.
         map.get("raj"); //null if not found // although it can also returns null if the value for specifed key is null
         //because hashmap can contains one null key and multiple null values
         //null returns deoesnot mean key is not there ,
@@ -28,13 +40,13 @@ public class MapExample {
         map.putIfAbsent("kishor", "kr"); //If the specified key does not exist or specified key has value null
 
         map.put("raj", "rj"); //put if key not found else replaced if key is already there;
+//        List<Character> list = new ArrayList<>(Arrays.asList('R', 'G', 'B'));
 
         map.putAll(new HashMap<>()); //put all the mappings from a given map to this map
 
         map.computeIfAbsent("raj", String::toLowerCase);  //The computeIfAbsent method takes two parameters.
         // The first parameter is the key and the second parameter is the mappingFunction.
         // It's important to know that mapping function is only called if the mapping is not present.
-
         map.compute("raj", String::concat); //it takes key and bifunction key, value to remap the value
 //        map.compute("unkonw", String::concat);
 
@@ -50,14 +62,17 @@ public class MapExample {
         Set<String> setKey = map.keySet(); //returns set of KEy
         List<String> setValues = new ArrayList<>(map.values()); //returns set of values
 
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+
+        }
+
         map.remove("raj"); //either reomves the key or returned null if key is not there
         map.remove("raj", "kr"); //removes only if the key is linked with given value.
 
 
         StringBuilder sb = new StringBuilder("sdfsf");
 
-        PriorityQueue<Pair<Integer, Integer>> pq = new PriorityQueue<>( (a, b) -> a.getValue() - b.getValue());
-
+        PriorityQueue<Pair<Integer, Integer>> pq = new PriorityQueue<>(Comparator.comparingInt(Pair::getValue));
 
 
         Map<String, Integer> mp = new HashMap<>();
@@ -91,9 +106,40 @@ public class MapExample {
         for (Character c : setC) {
             System.out.println(c);
         }
+    }
 
-        Collections.binarySearch(new ArrayList<>(), 10); //if not found it returns
-        //-(index  - 1) i.e., index is the supposed index of elements
+    public void treeMap() {
+
+        Map<Integer, Character> mp = new TreeMap<>();
+    }
+
+
+    public static void mapOperation2() {
+        Map<String, Integer> mp = new HashMap<>();
+
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(mp.entrySet());
+        list.sort(
+            (a, b) -> b.getValue().equals(a.getValue()) ? a.getKey().compareTo(b.getKey()) :
+                    b.getValue() - a.getValue()
+        );
+
+        list.stream().limit(Integer.min(list.size(), 5)).map(Map.Entry::getKey).collect(Collectors.toCollection(ArrayList::new));
+
+
+        PriorityQueue<Map.Entry<String, Integer>> pq = new PriorityQueue<>(
+                (a, b) -> b.getValue().equals(a.getValue()) ? b.getKey().compareTo(a.getKey()) :
+                        a.getValue() - b.getValue()
+        );
+
+        for (Map.Entry<String, Integer> entry : mp.entrySet()) {
+            pq.offer(entry);
+            if (pq.size() > 5) {
+                pq.poll();
+            }
+        }
+        list.addAll(pq);
+
+        Collections.reverse(list);
     }
 
     public static void concurrentHashMapOperation() {

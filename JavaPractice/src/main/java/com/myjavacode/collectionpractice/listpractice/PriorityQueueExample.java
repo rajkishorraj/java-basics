@@ -12,6 +12,7 @@ public class PriorityQueueExample {
 
         System.out.println(priorityQueue.peek());
 
+
         PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> b - a); //reverse
         PriorityQueue<Integer> pq2 = new PriorityQueue<>((a,b) -> Integer.compare(b, a));
 

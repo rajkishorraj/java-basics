@@ -1,6 +1,7 @@
 package com.myjavacode.collectionpractice.listpractice;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -14,7 +15,6 @@ public class SetExample {
         set.add("kajal");
         set.add("Sakshi");
         set.add("baby");
-
         Set<String> set1 = Collections.unmodifiableSet(set);
         System.out.println(set1);
         set.add("rimjhim");
@@ -28,10 +28,14 @@ public class SetExample {
         Iterator<String> stringIterator = set.iterator();
         set.forEach(System.out::println);
 
+        for (String st : set) {
+
+        }
         //have all method similar to List
 
         //returns sorted set
         Set<String> set2 = new TreeSet<>(String::compareTo);
+        Set<String> set3 = new HashSet<>(Arrays.asList("R", "G", "B"));
 
 
     }

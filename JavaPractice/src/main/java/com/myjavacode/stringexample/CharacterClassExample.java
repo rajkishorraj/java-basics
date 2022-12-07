@@ -1,11 +1,27 @@
 package com.myjavacode.stringexample;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PriorityQueue;
 
 public class CharacterClassExample {
 
     public static void main(String[] args) {
+        String str2 = "" + (char)('A' + 57);
+
+        PriorityQueue<Object[]> pq = new PriorityQueue<>((a, b) -> (int)b[1] - (int)a[1]);
+
+        Integer [] charArr = new Integer[26];
+        Arrays.fill(charArr, 4);
+
+        String str = String.join("", Collections.nCopies(5, "a"));
+        Arrays.sort(charArr, Comparator.reverseOrder());
+    }
+
+    public void method() {
         Character ch = new Character('6');
         Character ch2 = 't';
 
@@ -30,6 +46,6 @@ public class CharacterClassExample {
 
         System.out.println(x);
 
-
+        String bb[];
     }
 }

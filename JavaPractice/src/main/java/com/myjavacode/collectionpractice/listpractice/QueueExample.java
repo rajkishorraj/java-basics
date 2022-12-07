@@ -4,6 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class QueueExample {
     public static void main(String[] args) {
@@ -46,6 +47,7 @@ public class QueueExample {
 
         System.out.println(deque.peek());//head of the queue...ie. zeroth index
 
+        Stack<Integer> st = new Stack<>();
 
 
     }

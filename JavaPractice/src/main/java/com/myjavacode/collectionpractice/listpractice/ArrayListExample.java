@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Collectors;
 
 public class ArrayListExample {
 
@@ -106,8 +107,7 @@ public class ArrayListExample {
 
     }
 
-
-    public static void main(String[] args) {
+    public static void generalOperations() {
         List<String> list1 = new ArrayList<>(Arrays.asList("raj", "kr", "st", "str"));
         list1.add(3, "my");
         list1.remove("st");
@@ -156,6 +156,23 @@ public class ArrayListExample {
         //     * from this list all of its elements that are not contained in the
         //     * specified collection.
         list1.retainAll(new ArrayList<>());
+    }
+    public static void main(String[] args) {
+
+//        List<Integer> list = new ArrayList<>(10);
+//
+////        list.add(9, 8);
+////        System.out.println(list.get(0) +  " " + list.get(9));
+//
+//        int [] arr = new int[7];
+////        System.out.println(arr[-1]);
+//
+//        String idsString = "1234";
+//        List<Long> ids = Arrays.stream(idsString.split(",")).map(Long::valueOf).collect(Collectors.toList());
+//        System.out.println(ids.get(0));
+
+        int [] arr2 = {3, 4, 5};
+        System.out.println(arr2);
 
     }
 }

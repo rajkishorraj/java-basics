@@ -1,6 +1,5 @@
 package com.myjavacode.exceptionhandling;
 
-
 public class Example1 {
     public static void divide(int a, int b) {
         try {
@@ -53,8 +52,21 @@ public class Example1 {
 
 //        secondFunction();
 //        method();
-        firstFunction();
-        System.out.println("sdfsdf");
+//        firstFunction();
+//        throw new CustomException("this is custom exception");
+
+        Exception exception = method2();
+        exception.printStackTrace();
+
 
     }
+
+    public static CustomException method2() {
+        CustomException customException = new CustomException("this is custom exception");
+        return customException;
+    }
+    public static CustomException method3() {
+       return method2();
+    }
+
 }
