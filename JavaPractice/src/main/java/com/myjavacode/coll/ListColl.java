@@ -1,11 +1,16 @@
 package com.myjavacode.coll;
 
 import javafx.util.Pair;
+import org.apache.commons.io.IOUtils;
+import org.checkerframework.checker.units.qual.A;
 
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -29,21 +34,33 @@ public class ListColl {
 //        list.sort(Comparator.comparingInt(Integer::intValue));
 //        System.out.println(list);
 //        Thread.yield();
+//        "".spli
 
-        String str2 = "" + (char)('a' + 5);
-        System.out.println(str2);
+//        Map<Integer, Long> mp = new HashMap<Integer, Integer>().values().stream().collect(Collectors.groupingBy(a -> a, Collectors.counting()));
+//
+//        int [][] arr = new int[][]{{6, 7}};
+//
+//        int [][] ab = new ArrayList<int []>().stream().toArray(int[][]::new);
+//
+//        Arrays.sort(arr, Comparator.comparingInt(a -> a[0]));
+//
+//
+//        List<List<Integer>> paths = new ArrayList<>();
+//        paths.forEach(l -> new ArrayList<>().add(l));
+//        Calendar now = Calendar.getInstance();
+//
+//        Thread.currentThread().isInterrupted();
+//        Thread.currentThread().interrupt();
+        method(7);
+    }
 
+    public static boolean method(int b) {
+        int a = 0;
+        String abc = null;
+        return abc.equals("dfs");
 
+//        List<List<Integer>> integers = new ArrayList<>(5);
+//        integers.add(5, 7);
 
-        Integer [] charArr = new Integer[26];
-        Arrays.fill(charArr, 4);
-        String str = String.join("", Collections.nCopies(5, "a"));
-        System.out.println(str);
-
-        String s = "dffsywpqrs";
-        for (int i = 0; i < s.length(); i++) {
-            charArr[s.charAt(i) - 'a']++;
-        }
-        Arrays.sort(charArr, Comparator.reverseOrder());
     }
 }

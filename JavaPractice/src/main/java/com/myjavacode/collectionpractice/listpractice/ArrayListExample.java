@@ -103,7 +103,27 @@ public class ArrayListExample {
     public static void copyOnArrayListOperation(List<String> str) {
 
         List<Integer> listt = new CopyOnWriteArrayList<>();
+        Arrays.stream(new int[][]{{4}, {5}})
+//                .map(arr -> )
+                        .sorted((a, b) -> a[0] - b[0]);
 
+
+
+    }
+
+    public int bestTeamScore(int[] scores, int[] ages) {
+        int size = scores.length;
+        Integer [][] arr = new Integer[scores.length][ages.length];
+        int [] dp = new int[scores.length];
+
+        for (int i = 0; i < size; i++) {
+            arr[i][0] = scores[i];
+            arr[i][1] = ages[i];
+        }
+
+        Arrays.sort(arr, (a, b) -> b[1] - a[1]);
+
+        return -1;
 
     }
 

@@ -46,6 +46,32 @@ public class CharacterClassExample {
 
         System.out.println(x);
 
-        String bb[];
+
+    }
+
+    public void stringOperation() {
+        String str = "678";
+        int num = str.charAt(0) - '0';
+
+        String newStr = num + "";
+
+    }
+
+    public void moreOperaiton() {
+        String str2 = "" + (char)('a' + 5);
+        System.out.println(str2);
+
+
+
+        Integer [] charArr = new Integer[26];
+        Arrays.fill(charArr, 4);
+        String str = String.join("", Collections.nCopies(5, "a"));
+        System.out.println(str);
+
+        String s = "dffsywpqrs";
+        for (int i = 0; i < s.length(); i++) {
+            charArr[s.charAt(i) - 'a']++;
+        }
+        Arrays.sort(charArr, Comparator.reverseOrder());
     }
 }

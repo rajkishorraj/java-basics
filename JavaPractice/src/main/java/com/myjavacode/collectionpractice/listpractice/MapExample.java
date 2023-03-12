@@ -22,8 +22,9 @@ import java.util.stream.Collectors;
 public class MapExample {
     public static void main(String[] args) {
 
+        method3();
 
-        Collections.binarySearch(new ArrayList<>(), 10); //if not found it returns
+//        Collections.binarySearch(new ArrayList<>(), 10); //if not found it returns
         //-(index  - 1) i.e., index is the supposed index of elements
     }
 
@@ -49,6 +50,7 @@ public class MapExample {
         // It's important to know that mapping function is only called if the mapping is not present.
         map.compute("raj", String::concat); //it takes key and bifunction key, value to remap the value
 //        map.compute("unkonw", String::concat);
+
 
         map.containsKey("raj"); //check if key is present
         map.containsValue("kr"); //returns true if map has atleast one key with this value
@@ -145,4 +147,34 @@ public class MapExample {
     public static void concurrentHashMapOperation() {
         Map<String, String> mp = new ConcurrentHashMap<>();
     }
+
+    public static void method3() {
+        int x = 7;
+//        Map<Integer, Integer> mp = new HashMap<>();
+
+        new ArrayList<>().clone();
+
+        List<Map<Integer, Integer>> listMap = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) {
+            Map<Integer, Integer> t = new HashMap<>();
+            t.put(6,i);
+            listMap.add(t);
+        }
+
+        System.out.println(listMap);
+
+
+        Map<String, Integer> map = new HashMap<>();
+
+
+//
+//        mp.put(5, 6);
+//        mp.put(6, 7);
+//        mp.put(8, 6);
+//        Map<Integer, Long> mp2 = mp.values().stream().collect(Collectors.groupingBy(a -> a, Collectors.counting()));
+//
+//        System.out.println(mp2);
+    }
+
 }

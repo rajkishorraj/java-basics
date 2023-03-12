@@ -5,11 +5,13 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvValidationException;
 import net.lingala.zip4j.ZipFile;
-import net.lingala.zip4j.util.FileUtils;
+import net.lingala.zip4j.model.FileHeader;
+import org.apache.commons.io.FileUtils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -29,11 +31,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.zip.GZIPInputStream;
+import java.util.zip.ZipEntry;
 
 public class Split {
 
     public static void main(String[] args) throws IOException, CsvValidationException {
-        System.out.println(1 << 4);
+//        System.out.println(1 << 4);
+//        FileUtils.deleteDirectory(new File("/home/um-143-user/Pictures/a/b/"))
+        csvToListOfMap();
     }
 
     public static void splitFileIntoSmallerFiles(String sourceFilePath, String destinationFilePath, String extension, long maxLinesInAFile) throws RuntimeException {
@@ -69,10 +74,10 @@ public class Split {
         }
     }
 
-    public static void csvToListOfMap(int ind) throws CsvValidationException, IOException {
-        final char delimiter = '|';
+    public static void csvToListOfMap() throws CsvValidationException, IOException {
+        final char delimiter = ',';
         List<Map<String, Object>> dataMapList;
-        try (CSVReader csvReader = new CSVReaderBuilder(new FileReader("/home/um-143-user/Pictures/1.csv"))
+        try (CSVReader csvReader = new CSVReaderBuilder(new FileReader("/home/um-143-user/Downloads/flowone_20221212 (1)/flows/flowone_flows_SMS_20221221.csv"))
                 .withCSVParser(new CSVParserBuilder().withSeparator(delimiter).build())
                 .build()) {
             List<String> columnNames = Arrays.stream(csvReader.readNext()).collect(Collectors.toList());
@@ -91,6 +96,8 @@ public class Split {
                         dataMap.put(columnName, "".equals(columnValue) ? null : columnValue);
                     }
                 }
+
+                System.out.println(dataMap);
                 dataMap.put("UPDATED_AT", System.currentTimeMillis());
                 dataMapList.add(dataMap);
             }
@@ -180,5 +187,6 @@ public class Split {
         Character ch = '7';
 
     }
+
 
 }

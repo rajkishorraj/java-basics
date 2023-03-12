@@ -12,3 +12,4 @@ public enum EnumWithInstanceVariable {
         this.ounces = ounces;
     }
 }
+

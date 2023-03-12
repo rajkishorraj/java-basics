@@ -1,5 +1,7 @@
 package com.myjavacode.exceptionhandling;
 
+import java.util.HashMap;
+
 public class Example1 {
     public static void divide(int a, int b) {
         try {
@@ -49,16 +51,42 @@ public class Example1 {
 
     public static void main(String[] args) throws Exception {
 
+        System.out.println(methodOne());
+//        int i = 0;
+//        while(i < 5) {
+//            try {
+//                method34();
+//            } catch (InterruptedException e) {
+//                System.out.println("sfsd");
+//            }
+//            System.out.println("I " + i);
+//            i++;
+//        }
 
 //        secondFunction();
 //        method();
 //        firstFunction();
 //        throw new CustomException("this is custom exception");
 
-        Exception exception = method2();
-        exception.printStackTrace();
+//        Exception exception = method2();
+//        exception.printStackTrace();
 
+    }
 
+    public static int methodOne() {
+        try {
+           int a = 6;
+           int b = 4;
+           int c = a / b;
+           return c;
+        } finally {
+            return 10;
+        }
+    }
+
+    public static void method34() throws InterruptedException {
+        Thread.sleep(1000);
+        throw new RuntimeException("abc");
     }
 
     public static CustomException method2() {

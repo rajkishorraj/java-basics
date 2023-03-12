@@ -6,12 +6,18 @@ public class EnumClass {
     EnumWithInstanceVariable size;
 
     public enum CoffeeSize {
-        BIG, HUGE, OVERWHELMING
-    };
+        BIG, HUGE, OVERWHELMING;
+
+        @Override
+        public String toString() {
+            return super.toString().toLowerCase();
+        }
+
+        }
 
     public static void main(String [] args) {
         CoffeeSize cs = CoffeeSize.BIG;
-        System.out.println(cs);
+        System.out.println(cs.toString());
 
         EnumClass enumClass = new EnumClass();
         enumClass.size = EnumWithInstanceVariable.BIG;

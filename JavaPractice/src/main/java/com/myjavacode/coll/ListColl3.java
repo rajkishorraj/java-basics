@@ -7,21 +7,31 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ListColl3 {
 
 
     public static void main(String [] args) {
-
-//        List<String> arraylist = new ArrayList<>();
-//        Integer i1 = 100;
-//        Integer i2 = 100;
-//        System.out.println(i1 != i2);
-//        Sample sample = new Sample("sfs", 6);
-        Sample sample = new Sample(6);
-        System.out.println(sample.getB());
+        method();
     }
+
+    public static void method() {
+        try {
+            try {
+                int x = 5/ 0;
+            } finally {
+                System.out.println("iner finally");
+            }
+        } finally {
+            System.out.println("outer finally");
+        }
+    }
+
 }
+
+
+
 
 @Getter
 @RequiredArgsConstructor
@@ -31,3 +41,4 @@ class Sample extends ListColl3 {
     private final int b;
 
 }
+
