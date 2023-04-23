@@ -18,7 +18,13 @@ import java.util.zip.ZipFile;
 public class ZipFileProcessing {
     public static void main(String[] args) throws IOException {
 
-//        Path fileToMovePath = Paths.get("/home/um-143-user/Downloads/flowone_20221226.zip");
+        Path fileToMovePath = Paths.get("/home/um-143-user/Downloads/");
+
+        Path f2 = Paths.get(fileToMovePath + "/abc");
+
+        Files.createDirectory(f2);
+
+
 //        Path targetPath = Paths.get("/home/um-143-user/Downloads/flowoneeee.zip");
 //            Files.move(fileToMovePath, targetPath);
 //        readZipFile("/home/um-143-user/Pictures/flowone.zip");

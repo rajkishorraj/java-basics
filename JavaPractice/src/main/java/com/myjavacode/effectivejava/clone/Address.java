@@ -2,6 +2,15 @@ package com.myjavacode.effectivejava.clone;
 
 import lombok.Data;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.attribute.FileAttribute;
+import java.nio.file.attribute.PosixFilePermission;
+import java.nio.file.attribute.PosixFilePermissions;
+import java.util.HashSet;
+import java.util.Set;
+
 @Data
 public class Address implements Cloneable {
     private String street;
@@ -16,4 +25,19 @@ public class Address implements Cloneable {
         return (Address) super.clone();
     }
 
+    public static void main(String[] args) throws IOException {
+//        Address address = new Address("kas", "blr");
+//
+//        Student student = new Student("raj", new Address("sdf", "dsf"));
+//
+//        student.method(address);
+
+//        Files.createDirectories(Paths.get("/data/dist/m/b/c"), attr);
+
+//        System.out.println("adderess here: " + address.toString());
+    }
+
+    
 }
+
+

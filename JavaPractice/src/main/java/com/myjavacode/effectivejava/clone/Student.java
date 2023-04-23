@@ -17,4 +17,10 @@ public class Student implements Cloneable {
         student.setAddress(student.getAddress().clone());
         return student;
     }
+
+    public void method(Address address) {
+        System.out.println(address.toString());
+        address.setStreet("some thing else");
+        System.out.println(address.toString());
+    }
 }
