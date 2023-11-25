@@ -4,6 +4,11 @@ public class ImmutableExample {
 
     public static void main(String[] args) throws ClassNotFoundException {
         String ss = "dssf";
+        Long xc = 6L;
+        xc = 7L;
+
+        System.out.println(xc);
+
 
         ss.toUpperCase(); //immutablitly mean once you created the object you can not modify that object
         //however you can change the refrence variable to refer to some other object

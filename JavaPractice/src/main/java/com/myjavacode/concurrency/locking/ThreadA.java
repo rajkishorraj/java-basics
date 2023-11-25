@@ -31,10 +31,13 @@ public class ThreadA {
     }
 }
 
+
+
 class ThreadB extends Thread  {
     int total = 0;
 
     public void run() {
+
         System.out.println("inside run of ThreadB");
         synchronized (this) {
             try {

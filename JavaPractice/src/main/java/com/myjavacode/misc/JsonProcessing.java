@@ -1,19 +1,42 @@
 package com.myjavacode.misc;
 
-import com.google.gson.Gson;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+
 
 public class JsonProcessing {
 
     public static void main(String[] args) {
-        String abc = "{phonetype:N95,cat:WP}";
+        try {
+            // Read JSON string from file
+            String inputFilePath = "/home/um-143-user/Documents/branch_webhook_install_schem.json";
+            BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
+            StringBuilder jsonString = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                jsonString.append(line);
+            }
+            reader.close();
 
-        Gson gson = new Gson();
-        Map<String, String> map = gson.fromJson(abc, HashMap.class);
+            // Remove slashes and extra spaces
+            String cleanedJson = jsonString.toString()
+                    .replaceAll("\\n", "")
+                    .replaceAll("\\s+", "")
+                    .replaceAll("\\\\", "");
 
-        System.out.println(map.get("phonetype"));
+            // Save cleaned JSON to file
+            String outputFilePath = "/home/um-143-user/Documents/branch_webhook_install_schema_o.json";
+            BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath));
+            writer.write(cleanedJson);
+            writer.close();
+
+            System.out.println("Cleaned JSON saved to file: " + outputFilePath);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
